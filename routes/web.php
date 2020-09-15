@@ -28,5 +28,8 @@ Route::get('add/category', [PostController::class, 'AddCategory'])->name('add.ca
 Route::post('store/category', [PostController::class, 'storeCategory'])->name('store.category');
 Route::get('all/category', [PostController::class, 'allCategory'])->name('all_category');
 Route::get('view/category/{id}', [PostController::class, 'ViewCategory']);
+Route::get('delete/category/{id}', [PostController::class, 'DeleteCategory']);
+Route::get('edit/category/{id}', [PostController::class, 'EditCategory']);
+Route::post('update/category/{id}', [PostController::class, 'UpdateCategory']);
 
 

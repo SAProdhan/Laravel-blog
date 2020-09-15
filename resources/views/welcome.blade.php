@@ -120,6 +120,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous"></script>
   <!-- Custom scripts for this template -->
   <script src="{{ asset('public/frontend/js/clean-blog.min.js')}}"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
   @if(Session::has('messege'))
     var type="{{Session::get('alert-type', 'info')}}"
@@ -138,6 +139,29 @@
         break;
     }
     @endif
+    </script>
+    <script>
+    $(document).on("click", "#delete", function(e){
+      e.preventDefault();
+      var link = $(this).attr("href");
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success",
+          });
+          window.location.href = link;
+        } else {
+          swal("Your imaginary file is safe!");
+        }
+      });
+    })
     </script>
 </body>
 
