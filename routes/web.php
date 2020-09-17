@@ -33,3 +33,8 @@ Route::get('edit/category/{id}', [PostController::class, 'EditCategory']);
 Route::post('update/category/{id}', [PostController::class, 'UpdateCategory']);
 
 
+//post crud are here============
+Route::post('store/post', [PostController::class, 'StorePost'])->name('store.post');
+Route::get('all/post', [PostController::class, 'AllPost'])->name('all.post');
+
+
